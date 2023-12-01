@@ -1,0 +1,42 @@
+#dropdown-menu li a:hover {
+  text-decoration: underline;
+}
+
+#dropdown-menu li {
+margin-bottom: 10px; 
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+#dropdown-menu-Profile li a:hover {
+  text-decoration: underline;
+}
+
+#dropdown-menu-Profile li {
+  margin-bottom: 10px; 
+  margin-top: 10px;
+  }
+
+.profile-photo {
+  width: 45px;
+  height: 45px;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+ul#dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.6); 
+}
+
+ul#dropdown-menu-Profile {
+  background-color: rgba(255, 255, 255, 0.6); 
+}
+
+
+
+
+
+

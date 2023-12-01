@@ -12,7 +12,7 @@ class IndexController extends AbstractController
     #[Route('/', name: 'homepage')]
     public function index(): Response
     {
-        return $this->render('index/index.html.twig', [
+        return $this->render('index/home.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }
