@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HorrorMoviesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,21 @@ class HorrorMovies
 
     #[ORM\Column(length: 255)]
     private ?string $cover = null;
+
+    #[ORM\ManyToOne(inversedBy: 'horrorMovies')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Director $director = null;
+
+    #[ORM\ManyToMany(targetEntity: MoviesHorrorGenre::class, inversedBy: 'horrorMovies')]
+    private Collection $genres;
+
+    #[ORM\ManyToOne(inversedBy: 'horrorMovies')]
+    private ?Country $country = null;
+
+    public function __construct()
+    {
+        $this->genres = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -93,4 +110,53 @@ class HorrorMovies
 
         return $this;
     }
+
+    public function getDirector(): ?Director
+    {
+        return $this->director;
+    }
+
+    public function setDirector(?Director $director): static
+    {
+        $this->director = $director;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, MoviesHorrorGenre>
+     */
+    public function getGenres(): Collection
+    {
+        return $this->genres;
+    }
+
+    public function addGenre(MoviesHorrorGenre $genre): static
+    {
+        if (!$this->genres->contains($genre)) {
+            $this->genres->add($genre);
+        }
+
+        return $this;
+    }
+
+    public function removeGenre(MoviesHorrorGenre $genre): static
+    {
+        $this->genres->removeElement($genre);
+
+        return $this;
+    }
+
+    public function getCountry(): ?Country
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?Country $country): static
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
 }
