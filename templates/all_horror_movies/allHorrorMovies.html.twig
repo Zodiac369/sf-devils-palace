@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Films{% endblock %}
+
+{% block body %}
+    
+
+  {% for horrorMovie in horrorMovies %}
+    {% include 'all_horror_movies/_movies_displate.html.twig' with { horrorMovies: horrorMovies } only %}
+  {% else %}
+    <p>Aucun film trouvé</p>
+  {% endfor %}
+{% endblock %}
