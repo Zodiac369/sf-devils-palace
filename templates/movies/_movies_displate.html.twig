@@ -1,7 +1,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
     {% for horrorMovie in horrorMovies %}
         <div class="p-6 bg-white flex flex-col items-center">
-            <a href="#"><h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ horrorMovie.name }}</h5></a>
+            <a href="{{ path('movie_item', { id: horrorMovie.id }) }}"> <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ horrorMovie.name }}</h5></a>
             <img src="{{ horrorMovie.cover }}" alt="Movie Cover" class="mt-0" style="max-height: 70%;">
             Réalisé par :
             <a href="#"><h5 class="mb-2 text-m font-bold tracking-tight text-gray-900 dark:text-white"> {{ horrorMovie.director.name }}</h5></a>
