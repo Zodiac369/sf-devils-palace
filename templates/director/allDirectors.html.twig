@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisateurs{% endblock %}
+
+{% block body %}
+  {% for director in directors %}
+    {% include 'director/_director_displate.html.twig' with { directors: directors } only %}
+  {% else %}
+    <p>Aucun Réalisateurs trouvé</p>
+  {% endfor %}
+{% endblock %}

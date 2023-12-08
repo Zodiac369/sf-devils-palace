@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  {{ director.name }}
+{% endblock %}
+
+{% block body %}
+  <div class="mt-4 flex justify-center items-center">
+    <div class="flex flex-col">
+      <h1 class="mb-2 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-whit">{{ director.name }}</h1>
+    <img src="{{ director.profilePic }}" alt="Director Cover" class="mt-0 ml-4" style="max-height: 1%;">
+  </div>
+{% endblock %}

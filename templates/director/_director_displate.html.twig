@@ -1,0 +1,13 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+    {% for director in directors %}
+        <div class="p-6 bg-white flex flex-col items-center">
+            <a href="{{ path('director_item', { id: director.id }) }}"> <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ director.name }}</h5></a>
+            <img src="{{ director.profilePic }}" alt="Director Cover" class="mt-0" style="max-height: 70%;">
+            </a>
+        </div>
+        {% if loop.index % 3 == 0 %}
+            </div>
+            <div class="ml-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+        {% endif %}
+    {% endfor %}
+</div>
