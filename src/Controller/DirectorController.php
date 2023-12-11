@@ -23,9 +23,11 @@ class DirectorController extends AbstractController
     #[Route('/director/{id<\d+>}', name: 'director_item' )]
     public function item(Director $director): Response
     {
-
+        $movies = $director->getHorrorMovies();
+        
         return $this->render('director/item.html.twig', [
             'director' => $director,
+            'movies'=> $movies
         ]);
     }
 }
