@@ -1,0 +1,12 @@
+{{ form_start(newsletterForm) }}
+    <div class="mb-4">
+        {{ form_row(newsletterForm.email, { 'attr': 
+        {'placeholder': 'Adresse électronique', 
+        'style': 'width: 300px; height: 50px; color: red;'
+        }} ) 
+        }}
+    </div>
+    <button type="submit" class="border-0 px-3 py-4 ml-16 text-xl border-red-600 font-bold bg-red-600">
+        J'EN PROFITE
+    </button>        
+{{ form_end(newsletterForm) }}

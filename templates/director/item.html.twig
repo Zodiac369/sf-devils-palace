@@ -8,6 +8,15 @@
   <div class="mt-4 flex justify-center items-center">
     <div class="flex flex-col">
       <h1 class="mb-2 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-whit">{{ director.name }}</h1>
-    <img src="{{ director.profilePic }}" alt="Director Cover" class="mt-0 ml-4" style="max-height: 1%;">
+      <img src="{{ director.profilePic }}" alt="Director Cover" class="mt-0 ml-4">
+      
+      <h2 class="mt-4 mb-2 text-center font-bold"> Filmographie :</h2>
+      <ul>
+        {% for movie in movies %}
+          <a href ="{{ path('movie_item', { id: movie.id }) }}"> 
+          <img src="{{ movie.cover }}"></a> 
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 {% endblock %}
