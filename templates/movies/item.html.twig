@@ -14,7 +14,7 @@
         </a>
       {% endif %}
       <div class="text-center max-w-md mb-4">
-        <p>{{ horrorMovie.synopsis }}</p>
+        <p>{{ horrorMovie.synopsis | striptags }}</p>
       </div>
     </div>
     <img src="{{ horrorMovie.cover }}" alt="Movie Cover" class="mt-0 ml-4" style="max-height: 55%;">

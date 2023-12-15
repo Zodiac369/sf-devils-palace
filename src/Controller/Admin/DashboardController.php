@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Country;
+use App\Entity\Director;
 use App\Entity\HorrorMovies;
+use App\Entity\MoviesHorrorGenre;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -25,8 +28,7 @@ class DashboardController extends AbstractDashboardController
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($this->adminUrlGenerator->setController(HorrorMoviesCrudController::class)->generateUrl());
-
+        return $this->render('admin/home.html.twig');
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
         // if ('jane' === $this->getUser()->getUsername()) {
@@ -48,6 +50,11 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('The Label', 'fas fa-list', HorrorMovies::class);
+        yield MenuItem::linkToCrud('Movies', 'fas fa-list', HorrorMovies::class);
+        yield MenuItem::linkToCrud('Directors', 'fas fa-list', Director::class);
+        yield MenuItem::linkToCrud('Countries', 'fas fa-list', Country::class);
+        yield MenuItem::linkToCrud('Genres', 'fas fa-list', MoviesHorrorGenre::class);
+
+
     }
 }
