@@ -1,0 +1,23 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block title %}
+Devil's Palace Dashboard
+{% endblock %}
+
+{% block content_title %}
+    Devil's Palace Dashboard
+{% endblock %}
+
+{% block main %}
+    <div class="my-custom-content">
+        <h1>Bienvenue brave Administrateur 🙋 !!<br> ( j'espère pour moi que tu l'es 😿 )!</h1>
+    </div>
+    <br>
+    <h2>{{ totalMovies }} films répertoriés !</h2>
+<h2>le nombre de genres par films : </h2>
+<ul>
+    {% for item in genreDistribution %}
+        <li>{{ item.genre }}: {{ item.count }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

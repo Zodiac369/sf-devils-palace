@@ -6,6 +6,9 @@ use App\Entity\Country;
 use App\Entity\Director;
 use App\Entity\HorrorMovies;
 use App\Entity\MoviesHorrorGenre;
+use App\Repository\HorrorMoviesRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -16,29 +19,35 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractDashboardController
 {
     public function __construct(
-        private AdminUrlGenerator $adminUrlGenerator
+        private AdminUrlGenerator $adminUrlGenerator,
+        private EntityManagerInterface $em
     ){
 
     }
     
     #[Route('/admin', name: 'admin')]
-    public function index(): Response
+    public function dashboard(HorrorMoviesRepository $moviesRepository): Response
     {
+          
+        $totalMovies = $this->em->getRepository(HorrorMovies::class)
+        ->createQueryBuilder('m')
+        ->select('count(m.id)')
+        ->getQuery()
+        ->getSingleScalarResult();
 
-        // Option 1. You can make your dashboard redirect to some common page of your backend
-        //
-        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->render('admin/home.html.twig');
-        // Option 2. You can make your dashboard redirect to different pages depending on the user
-        //
-        // if ('jane' === $this->getUser()->getUsername()) {
-        //     return $this->redirect('...');
-        // }
+        $genreDistribution = $this->em->getRepository(HorrorMovies::class)
+        ->createQueryBuilder('m')
+        ->select('g.name as genre, count(m.id) as count')
+        ->leftJoin('m.genres', 'g')
+        ->groupBy('g.name')
+        ->getQuery()
+        ->getResult();
 
-        // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
-        // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
-        //
-        // return $this->render('some/path/my-dashboard.html.twig');
+        return $this->render('admin/home.html.twig', [
+        'totalMovies' => $totalMovies,
+        'genreDistribution' => $genreDistribution,
+        ]);
+
     }
 
     public function configureDashboard(): Dashboard
@@ -54,7 +63,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Directors', 'fas fa-list', Director::class);
         yield MenuItem::linkToCrud('Countries', 'fas fa-list', Country::class);
         yield MenuItem::linkToCrud('Genres', 'fas fa-list', MoviesHorrorGenre::class);
-
 
     }
 }
