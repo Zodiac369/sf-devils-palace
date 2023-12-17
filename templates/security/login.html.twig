@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
 <form method="post" class="max-w-sm mx-auto">
@@ -18,17 +18,17 @@
 
     <div class="mb-5">
         <label for="inputEmail" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Adresse email :</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" autocomplete="email" required autofocus>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" autocomplete="email" required autofocus>
     </div>
     <div class="mb-5">
         <label for="inputPassword" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe :</label>
-        <input type="password" name="password" id="inputPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" autocomplete="current-password" required>
+        <input type="password" name="password" id="inputPassword" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500" autocomplete="current-password" required>
     </div>
 
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
     <button class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" type="submit">Connexion</button>    
-    <p class="text-red-600 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center">Inscrivez-vous ici</p>
+    <a href="{{ path('app_register') }}" class="text-red-600 font-medium text-m w-full sm:w-auto px-5 py-2.5 text-center">Inscrivez-vous ici</a>
 
 </form>
 {% endblock %}
