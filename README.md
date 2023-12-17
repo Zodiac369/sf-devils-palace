@@ -68,7 +68,7 @@ Merci pour tout Lucas, Symfony est un vrai coup de coeur pour moi, je pense que 
 Mon README est bancal, j'ai cette impression, j'ai peur d'avoir oublié des choses, je l'ai écris en 2jours, j'ai été idiot de ne pas l'avoir fait au fur et à mesure, Symfony est tellement agréable d'utilisation que tout va très vite, je pense que j'aurais pu faire bien + pour ce projet, j'ai voulu garder les choses propres et garder une directive simple. 
 <code>Si tu peux, check l'uri director/21 😉.</code>
 
-# MERCI. 
+# MERCI.✌️
 
 
 
