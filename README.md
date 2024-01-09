@@ -1,4 +1,4 @@
-# Projet Symfony - Devil's Palace / Aydogan Emre
+# Projet Symfony - Devil's Palace 
 ## Entités et Controllers
 - Création des Entités via le maker en ajoutant les relations adaptés. 
 - Crétation des Controllers via le maker.
@@ -61,12 +61,6 @@ Je n'ai juste pas modifié le register.html.twig, je n'ai pas voulu m'attarder s
 ## EasyAdmin
 Très bel outil de gestion du CRUD, j'ai intégrer ceci en suivant le cours et un petit peu de documentation, j'ai gardé les choses simples, et ça marche très bien.
 Accessible uniqument en tant qu'admin, acces_control changé dans le security.yaml bien entendu.
-
-# FIN
-
-Merci pour tout Lucas, Symfony est un vrai coup de coeur pour moi, je pense que je continuerais a passer du temps sur ce Framework qui pour moi est complet, je dois juste passer sous Linux un jour 😭, j'ai passé 2 super mois, tu es très bon dans ce que tu fais, très pédagogue, ne change rien.
-Mon README est bancal, j'ai cette impression, j'ai peur d'avoir oublié des choses, je l'ai écris en 2jours, j'ai été idiot de ne pas l'avoir fait au fur et à mesure, Symfony est tellement agréable d'utilisation que tout va très vite, je pense que j'aurais pu faire bien + pour ce projet, j'ai voulu garder les choses propres et garder une directive simple. 
-<code>Si tu peux, check l'uri director/21 😉.</code>
 
 # MERCI.✌️
 
