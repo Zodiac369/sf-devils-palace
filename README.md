@@ -1,4 +1,4 @@
-# Projet Symfony - Devil's Palace / Aydogan Emre
+# Projet Symfony - Devil's Palace 
 ## Entités et Controllers
 - Création des Entités via le maker en ajoutant les relations adaptés. 
 - Crétation des Controllers via le maker.
